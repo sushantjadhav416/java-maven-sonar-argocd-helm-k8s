@@ -50,7 +50,7 @@ pipeline {
         environment {
             GIT_REPO_NAME = "java-maven-sonar-argocd-helm-k8s"
             GIT_USER_NAME = "sushantjadhav416"
-            GITHUB_TOKEN = "
+            GITHUB_TOKEN = "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"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
