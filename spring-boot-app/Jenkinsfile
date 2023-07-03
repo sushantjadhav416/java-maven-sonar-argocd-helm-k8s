@@ -22,6 +22,7 @@ pipeline {
     stage('Static Code Analysis') {
       environment {
         SONAR_URL = "http://0.0.0.0:9000"
+        SONAR_AUTH_TOKEN = "4bfc1cec413007d3900019e06207e2567b31f1db"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -49,6 +50,7 @@ pipeline {
         environment {
             GIT_REPO_NAME = "java-maven-sonar-argocd-helm-k8s"
             GIT_USER_NAME = "sushantjadhav416"
+            GITHUB_TOKEN = "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"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
