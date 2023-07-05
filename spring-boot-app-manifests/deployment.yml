@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: sushantjadhavhcl/asp-web-app:v2
+        image: sushantjadhavhcl/ultimate-cicd:4
         ports:
         - containerPort: 8080
