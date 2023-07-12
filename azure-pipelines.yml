@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - script: 
+        sh 'ls -ltr'
+        sh 'cd spring-boot-app && mvn clean package'
+- stage: build and Push Docker Image
+  displayName:  build push
+  jobs:
+  - job: Build and push
+    displayName: Build 
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - script:
+         sh 'cd spring-boot-app && docker build -t sushantjadhavhcl/spring-boot-app:${BUILD_NUMBER}'
+         def dockerImage = docker.image("sushantjadhavhcl/spring-boot-app:${BUILD_NUMBER}")
+         docker.withRegistry('https://index.docker.io/v1/', "docker-cred") {
+                dockerImage.push() 
+                }
+
