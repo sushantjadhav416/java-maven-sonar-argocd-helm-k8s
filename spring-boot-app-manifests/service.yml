@@ -6,8 +6,8 @@ spec:
   type: NodePort
   ports:
   - name: http
-    port: 80
-    targetPort: 8080
+    port: 85
+    targetPort: 80
     protocol: TCP
   selector:
     app: spring-boot-app
