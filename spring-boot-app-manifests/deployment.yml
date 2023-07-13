@@ -18,4 +18,4 @@ spec:
       - name: spring-boot-app
         image: sushantjadhavhcl/ultimate-cicd:4
         ports:
-        - containerPort: 8080
+        - containerPort: 80
