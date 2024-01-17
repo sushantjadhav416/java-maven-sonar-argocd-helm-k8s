@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on:  abhishekf5/maven-abhishek-docker-agent:v1
+    runs-on:  ubuntu-latest
               
     steps:
     - name: Checkout Repository
