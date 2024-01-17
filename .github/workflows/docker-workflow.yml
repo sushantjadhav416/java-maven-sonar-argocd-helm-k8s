@@ -1,0 +1,34 @@
+name: Docke_Buid_and_Push_Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Login to Docker Hub
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build Docker Image and Updatating the deployment files
+      run: |
+           git config user.email "sushantjadhav416@gmail.com"
+           git config user.name "sushantjadhav416"
+           TAG_DATE=$(date +'%Y%m%d');
+           docker build -t sushantjadhavhcl/java_maven:${TAG_DATE} ./spring-boot-app/
+           docker push sushantjadhavhcl/java_maven:${TAG_DATE}
+           sed -i "s/replaceImageTag/${TAG_DATE}/g" spring-boot-app-manifests/deployment.yaml
+           git add -A
+           git commit -m "Updated deployment image to version ${TAG_DATE}" 
+           git push https://${{ secrets.GI_TOKEN }}@github.com/sushantjadhav416/java-maven-sonar-argocd-helm-k8s HEAD:main
+           
+    
