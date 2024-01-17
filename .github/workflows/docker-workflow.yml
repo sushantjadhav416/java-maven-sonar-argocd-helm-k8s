@@ -26,7 +26,7 @@ jobs:
            TAG_DATE=$(date +'%Y%m%d');
            docker build -t sushantjadhavhcl/java_maven:${TAG_DATE} ./spring-boot-app/
            docker push sushantjadhavhcl/java_maven:${TAG_DATE}
-           sed -i "s/replaceImageTag/${TAG_DATE}/g" spring-boot-app-manifests/deployment.yaml
+           sed -i "s/replaceImageTag/${TAG_DATE}/g" spring-boot-app-manifests/deployment.yml
            git add -A
            git commit -m "Updated deployment image to version ${TAG_DATE}" 
            git push https://${{ secrets.GI_TOKEN }}@github.com/sushantjadhav416/java-maven-sonar-argocd-helm-k8s HEAD:main
