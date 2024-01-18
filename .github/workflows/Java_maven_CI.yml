@@ -26,6 +26,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
          name: Java-maven-artifact
-         path: /spring-boot-app
+         path: /spring-boot-app/target
+         
 
     
