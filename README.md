@@ -1,4 +1,4 @@
-# Jenkins Pipeline for Java based application using Maven, SonarQube, Argo CD and Kubernetes
+# Jenkins and Github Actions Pipeline for Java based application using Maven, SonarQube, Argo CD and Kubernetes
 
 
 
