@@ -22,4 +22,10 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file spring-boot-app/pom.xml
 
+    - name: Push artifact to repo
+      uses: actions/upload-artifact@v4
+      with:
+         name: Java-maven-artifact
+         path: /spring-boot-app
+
     
