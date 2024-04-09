@@ -23,10 +23,11 @@ jobs:
       run: |
            git config user.email "sushantjadhav416@gmail.com"
            git config user.name "sushantjadhav416"
-           TAG_DATE=$(date +'%Y%m%d');
+           TAG_DATE=v
+           TAG_DATE+=$(date +'%Y%m%d');
            docker build -t sushantjadhavhcl/java_maven:${TAG_DATE} ./spring-boot-app/
            docker push sushantjadhavhcl/java_maven:${TAG_DATE}
-           sed -i "s/2024../${TAG_DATE}/g" spring-boot-app-manifests/deployment.yml
+           sed -i "s/v../${TAG_DATE}/g" spring-boot-app-manifests/deployment.yml
            git add -A
            git commit -m "Updated deployment image to version ${TAG_DATE}" 
            git push https://${{ secrets.GI_TOKEN }}@github.com/sushantjadhav416/java-maven-sonar-argocd-helm-k8s HEAD:main
