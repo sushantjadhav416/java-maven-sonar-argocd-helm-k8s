@@ -48,11 +48,35 @@
         </dependency>
 
     </dependencies>
+         
+    <repsoitories>
+        <repository>
+          <id>sushantjadhav416</id>
+          <url>https://pkgs.dev.azure.com/sushantjadhav416/_packaging/sushantjadhav416/maven/v1</url>
+          <releases>
+               <enabled>true</enabled>
+          </releases>
+          <snapshots>
+               <enabled>true</enabled>
+          </snapshots>
+        </repository>
+    </repsoitories>
+
+    <distributionManagement>
+        <repository>
+          <id>sushantjadhav416</id>
+          <url>https://pkgs.dev.azure.com/sushantjadhav416/_packaging/sushantjadhav416/maven/v1</url>
+          <releases>
+               <enabled>true</enabled>
+          </releases>
+          <snapshots>
+               <enabled>true</enabled>
+          </snapshots>
+        </repository>
+    </distributionManagement>
 
     <build>
-
         <finalName>spring-boot-web</finalName>
-
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
