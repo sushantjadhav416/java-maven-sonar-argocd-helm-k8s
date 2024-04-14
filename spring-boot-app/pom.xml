@@ -49,7 +49,7 @@
 
     </dependencies>
          
-    <repsoitories>
+    <repositories>
         <repository>
           <id>sushantjadhav416</id>
           <url>https://pkgs.dev.azure.com/sushantjadhav416/_packaging/sushantjadhav416/maven/v1</url>
@@ -60,7 +60,7 @@
                <enabled>true</enabled>
           </snapshots>
         </repository>
-    </repsoitories>
+    </repositories>
 
     <distributionManagement>
         <repository>
