@@ -23,7 +23,12 @@ jobs:
       run: |
             cd spring-boot-app
             mvn -B package --file pom.xml
-            mvn deploy
+    - name: Publish to Azure Artifacts
+      run: mvn deploy
+      env:
+        ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+        ARTIFACTORY_PASSWORD: ${{ secrets.AZURE_DEV_TOKEN }}
+       
       
 
     # - name: Push artifact to repo
