@@ -21,7 +21,8 @@ jobs:
         cache: maven
     - name: Configure Maven
       run: |
-            cp .github/maven/settings.xml $HOME/.m2/settings.xml
+            cd .github
+            cp maven/settings.xml $HOME/.m2/settings.xml
     - name: Build with Maven
       run: |
             cd spring-boot-app
