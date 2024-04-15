@@ -31,7 +31,7 @@ jobs:
             mvn deploy
       env:
         ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
-        ARTIFACTORY_PASSWORD: ${{ secrets.AZURE_DEV_TOKEN }}
+        AZURE_DEV_TOKEN: ${{ secrets.AZURE_DEV_TOKEN }}
        
       
 
