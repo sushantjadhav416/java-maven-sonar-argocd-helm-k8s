@@ -1,10 +1,11 @@
 pipeline {
-  agent {
-    docker {
-      image 'abhishekf5/maven-abhishek-docker-agent:v1'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
-    }
-  }
+  agent any
+  // agent {
+  //   docker {
+  //     image 'abhishekf5/maven-abhishek-docker-agent:v1'
+  //     args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+  //   }
+  // }
   stages {
     stage('Checkout') {
       steps {
@@ -19,6 +20,7 @@ pipeline {
         sh 'cd spring-boot-app && mvn clean package'
       }
     }
+    
     // stage('Static Code Analysis') {
     //   environment {
     //     SONAR_URL = "http://0.0.0.0:9000"
@@ -30,6 +32,12 @@ pipeline {
     //     }
     //   }
     // }
+    stage('TRIVY FS SCAN') 
+    {
+            steps {
+                sh "trivy fs . > trivyfs.txt"
+            }
+    }
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "sushantjadhavhcl/ultimate-cicd:${BUILD_NUMBER}"
@@ -45,6 +53,12 @@ pipeline {
             }
         }
       }
+    }
+    stage("TRIVY")
+    {
+            steps{
+                sh "trivy image sushantjadhavhcl/ultimate-cicd:${BUILD_NUMBER} > trivyimage.txt" 
+            }
     }
     stage('Update Deployment File') {
         environment {
