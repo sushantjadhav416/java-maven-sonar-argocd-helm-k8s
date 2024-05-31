@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.abhishek</groupId>
+    <groupId>com.Sushant</groupId>
     <artifactId>spring-boot-demo</artifactId>
     <version>1.0</version>
 
@@ -48,11 +48,35 @@
         </dependency>
 
     </dependencies>
+         
+    <repositories>
+        <repository>
+          <id>sushantjadhav416</id>
+          <url>https://pkgs.dev.azure.com/sushantjadhav416/_packaging/sushantjadhav416/maven/v1</url>
+          <releases>
+               <enabled>true</enabled>
+          </releases>
+          <snapshots>
+               <enabled>true</enabled>
+          </snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+          <id>sushantjadhav416</id>
+          <url>https://pkgs.dev.azure.com/sushantjadhav416/_packaging/sushantjadhav416/maven/v1</url>
+          <releases>
+               <enabled>true</enabled>
+          </releases>
+          <snapshots>
+               <enabled>true</enabled>
+          </snapshots>
+        </repository>
+    </distributionManagement>
 
     <build>
-
         <finalName>spring-boot-web</finalName>
-
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

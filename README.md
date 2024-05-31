@@ -1,20 +1,22 @@
-# Jenkins Pipeline for Java based application using Maven, SonarQube, Argo CD, Helm and Kubernetes
-
-![Screenshot 2023-03-28 at 9 38 09 PM](https://user-images.githubusercontent.com/43399466/228301952-abc02ca2-9942-4a67-8293-f76647b6f9d8.png)
+# Jenkins and Github Actions Pipeline for Java based application using Maven, SonarQube, Argo CD and Kubernetes
 
 
-Here are the step-by-step details to set up an end-to-end Jenkins pipeline for a Java application using SonarQube, Argo CD, Helm, and Kubernetes:
+
+
+Here are the step-by-step details to set up an end-to-end Jenkins pipeline for a Java application using SonarQube, Argo CD and Kubernetes:
 
 Prerequisites:
 
    -  Java application code hosted on a Git repository
-   -   Jenkins server
+   -  Jenkins server
    -  Kubernetes cluster
-   -  Helm package manager
    -  Argo CD
+   -  GitHub Actions
 
 Steps:
 
+   For Jenkins Pipline :
+   
     1. Install the necessary Jenkins plugins:
        1.1 Git plugin
        1.2 Maven Integration plugin
@@ -41,7 +43,7 @@ Steps:
         Stage 3: Use the JUnit and Mockito plugins to run unit tests.
         Stage 4: Use the SonarQube plugin to analyze the code quality of the Java application.
         Stage 5: Use the Maven Integration plugin to package the application into a JAR file.
-        Stage 6: Use the Kubernetes Continuous Deploy plugin to deploy the application to a test environment using Helm.
+        Stage 6: Use the Kubernetes Continuous Deploy plugin to deploy the application to a test environment.
         Stage 7: Use a testing framework like Selenium to run user acceptance tests on the deployed application.
         Stage 8: Use Argo CD to promote the application to a production environment.
 
@@ -59,4 +61,4 @@ Steps:
        7.1 Trigger the Jenkins pipeline to start the CI/CD process for the Java application.
        7.2 Monitor the pipeline stages and fix any issues that arise.
 
-This end-to-end Jenkins pipeline will automate the entire CI/CD process for a Java application, from code checkout to production deployment, using popular tools like SonarQube, Argo CD, Helm, and Kubernetes.
+This end-to-end Jenkins pipeline will automate the entire CI/CD process for a Java application, from code checkout to production deployment, using popular tools like Githu Actions , SonarQube, Argo CD  and Kubernetes.
